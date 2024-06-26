@@ -1,0 +1,10 @@
+<appian-plugin name="MPPToExcelConversion" key="com.lcm.plugins.mpp">
+    <plugin-info>
+        <description> This smart service will convert mpp to excel with configured parmaters for resources,assignments and tasks. </description>
+        <vendor name="LowCode Minds" url="https://www.lowcodeminds.com/" />
+        <version>1.0.0</version>
+        <application-version min="23.3" />
+    </plugin-info>
+    <smart-service name="MPPToExcelConversion" key="MPPToExcelConversion" class="com.lcm.plugins.mpp.AdvancedMPPToExcelConverterSmartService" />
+
+</appian-plugin>
