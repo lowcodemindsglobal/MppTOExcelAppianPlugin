@@ -14,7 +14,6 @@ import net.sf.mpxj.reader.UniversalProjectReader;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.commons.io.IOUtils;
-import org.apache.log4j.Logger;
 import org.apache.poi.xssf.usermodel.XSSFWorkbook;
 
 import java.io.FileInputStream;
@@ -28,12 +27,13 @@ import java.util.Map;
 import java.util.ResourceBundle;
 import java.util.function.Function;
 import java.util.stream.Collectors;
+import java.util.logging.Logger;
 
 public class ConverterService {
 
-    private static final Logger LOG = Logger.getLogger(ConverterService.class);
     private static final String BUNDLE_NAME = "com.lcm.plugins.mpp.MPPToExcelConversion"; // Full bundle name with package
-
+    private static final Logger LOG = Logger.getLogger("Log", BUNDLE_NAME);
+    
     public Long convertMPPToExcel(ContentService contentService, Long mppDocument, Long saveInFolder, String taskHeadersJson, String taskSheetName, 
                                   String resourceHeadersJson, String resourceSheetName, String assignmentHeadersJson, String assignmentSheetName) throws SmartServiceException {
         Long excelDocument = null;
@@ -60,7 +60,7 @@ public class ConverterService {
             excelDocument = createDocument(contentService, saveInFolder, excelFilePath);
             uploadDocument(contentService, excelDocument, excelFilePath);
         } catch (Exception e) {
-            LOG.error("Error converting MPP to Excel", e);
+            LOG.info("Error converting MPP to Excel");
             ResourceBundle bundle = ResourceBundle.getBundle(BUNDLE_NAME, Locale.getDefault());
             String errorMessage = bundle.getString("error.convertingMPPToExcel");
             throw new SmartServiceException(null, e, errorMessage, null);
