@@ -65,7 +65,6 @@ MPPToExcelConverterService acts as a mediator between the Appian plugin and the 
 	</classpathentry>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="lib" path="C:/Users/SangeerththanBalacha/Desktop/2024/Appian/PluginDevelopment/Template-Plugin/libraries/appian-plug-in-sdk.jar"/>
-	<classpathentry kind="lib" path="src/META-INF/lib/apache-logging-log4j.jar"/>
 	<classpathentry kind="lib" path="src/META-INF/lib/log4j-api-2.20.0.jar"/>
 	<classpathentry kind="lib" path="src/META-INF/lib/mpxj-12.10.1.jar"/>
 	<classpathentry kind="lib" path="src/META-INF/lib/poi-5.2.5.jar"/>
