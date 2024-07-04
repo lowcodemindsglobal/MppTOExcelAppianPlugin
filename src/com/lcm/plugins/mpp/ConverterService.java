@@ -39,6 +39,7 @@ public class ConverterService {
         Long excelDocument = null;
 
         try {
+        	LOG.info("Started Reading Project File");
             ProjectFile projectFile = readProjectFile(contentService, mppDocument);
 
             Map<String, Function<Task, String>> taskHeaders = parseHeaders(taskHeadersJson, Task.class);
@@ -58,7 +59,9 @@ public class ConverterService {
             XSSFWorkbook workbook = ExcelWorkbookFactory.createWorkbookFromProjectFile(projectFile, sheetConfig);
             String excelFilePath = saveWorkbookToFile(workbook, contentService, mppDocument);
             excelDocument = createDocument(contentService, saveInFolder, excelFilePath);
+            LOG.info("Started Uploading Excel File");
             uploadDocument(contentService, excelDocument, excelFilePath);
+            LOG.info("Finished Uploading Excel File");
         } catch (Exception e) {
             LOG.info("Error converting MPP to Excel");
             ResourceBundle bundle = ResourceBundle.getBundle(BUNDLE_NAME, Locale.getDefault());
