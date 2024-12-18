@@ -1,2 +1,7 @@
 
 src/.project
+gradlew
+gradlew.bat
+.idea
+.gradle
+gradle
